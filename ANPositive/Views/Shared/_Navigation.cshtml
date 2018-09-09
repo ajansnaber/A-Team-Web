@@ -1,0 +1,17 @@
+﻿@using ANPositive.Models
+
+@{
+    List<Content> contents = Model;
+}
+
+@{
+    if (contents.Count > 0)
+    {
+        foreach (Content content in contents)
+        {
+            <li>
+                @Html.ActionLink(content.title, "index", content.language == 0 ? "Contents" : "Icerik", new { id = content.seoUrl() }, null)
+            </li>
+        }
+    }
+}

@@ -1,0 +1,52 @@
+﻿@section Styles{
+    @Styles.Render("~/plugins/dataTablesStyles")
+    @Styles.Render("~/plugins/toastrStyles")
+
+    <link href="~/Content/Admin/User/List.min.css" rel="stylesheet" />
+}
+
+@section scripts{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/toastr")
+    @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/plugins/ANPositive")
+
+    <script type="text/javascript">
+        var sAjaxSource = "@Url.Action("Users", "Api")",
+            editLink = "@Url.Action("Edit")";
+    </script>
+
+    <script src="~/Scripts/Admin/User/List.min.js"></script>
+}
+
+@Html.Partial("~/Areas/Admin/Views/Shared/_BreadCrumb.cshtml", "Yeni Kullanıcı Ekle")
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewBag.Title</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" id="form">
+                    <div class="sk-spinner sk-spinner-double-bounce">
+                        <div class="sk-double-bounce1"></div>
+                        <div class="sk-double-bounce2"></div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="table-responsive">
+                            <table id="table"></table>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

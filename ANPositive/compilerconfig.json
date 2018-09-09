@@ -1,0 +1,70 @@
+﻿[
+  {
+    "outputFile": "Content/Admin/User/List.css",
+    "inputFile": "Content/Admin/User/List.scss"
+  },
+  {
+    "outputFile": "Content/Admin/User/Insert.css",
+    "inputFile": "Content/Admin/User/Insert.scss"
+  },
+  {
+    "outputFile": "Content/Admin/User/Edit.css",
+    "inputFile": "Content/Admin/User/Edit.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Content/Edit.css",
+    "inputFile": "Content/Admin/Content/Edit.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Content/Insert.css",
+    "inputFile": "Content/Admin/Content/Insert.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Content/List.css",
+    "inputFile": "Content/Admin/Content/List.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Gallery/Edit.css",
+    "inputFile": "Content/Admin/Gallery/Edit.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Gallery/Insert.css",
+    "inputFile": "Content/Admin/Gallery/Insert.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Gallery/List.css",
+    "inputFile": "Content/Admin/Gallery/List.scss"
+  },
+  {
+    "outputFile": "Content/Admin/Account/Login.css",
+    "inputFile": "Content/Admin/Account/Login.scss"
+  },
+  {
+    "outputFile": "Content/Site/Core/Footer.css",
+    "inputFile": "Content/Site/Core/Footer.scss"
+  },
+  {
+    "outputFile": "Content/Site/Core/Default.css",
+    "inputFile": "Content/Site/Core/Default.scss"
+  },
+  {
+    "outputFile": "Content/Site/Core/Core.css",
+    "inputFile": "Content/Site/Core/Core.scss"
+  },
+  {
+    "outputFile": "Content/Site/Core/Responsive.css",
+    "inputFile": "Content/Site/Core/Responsive.scss"
+  },
+  {
+    "outputFile": "Content/Site/Home/Home.css",
+    "inputFile": "Content/Site/Home/Home.scss"
+  },
+  {
+    "outputFile": "Content/Site/Contact/Contact.css",
+    "inputFile": "Content/Site/Contact/Contact.scss"
+  },
+  {
+    "outputFile": "Content/Site/Content/Content.css",
+    "inputFile": "Content/Site/Content/Content.scss"
+  }
+]

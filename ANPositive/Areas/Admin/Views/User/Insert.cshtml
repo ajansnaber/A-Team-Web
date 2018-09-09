@@ -1,0 +1,82 @@
+﻿@using ANPositive.Models
+@section Styles{
+    @Styles.Render("~/plugins/toastrStyles")
+
+    <link href="~/Content/Admin/User/Insert.min.css" rel="stylesheet" />
+}
+
+@section scripts{
+    @Scripts.Render("~/plugins/BootstrapMaxlength")
+    @Scripts.Render("~/plugins/toastr")
+    @Scripts.Render("~/plugins/devBridgeAutoComplete")
+    @Scripts.Render("~/plugins/moment")
+    @Scripts.Render("~/plugins/ANPositive")
+
+    <script src="~/Scripts/Admin/User/Insert.min.js"></script>
+    <script type="text/javascript">
+        var redirectUrl = "@Url.Action("List")",
+            ajaxUrl = "@Url.Action("create")";
+    </script>
+}
+
+@Html.Partial("~/Areas/Admin/Views/Shared/_BreadCrumb.cshtml", "Kullanıcılara Geri Dön")
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewBag.Title</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" id="form">
+                    <div class="sk-spinner sk-spinner-double-bounce">
+                        <div class="sk-double-bounce1"></div>
+                        <div class="sk-double-bounce2"></div>
+                    </div>
+
+                    <div class="alert alert-success" role="alert">
+                        <p>Kullanıcı ilk girişinde parola olarak <strong>P@r0la..</strong> parolasını kullanmalıdır.</p>
+                    </div>
+
+                    <div class="alert alert-warning hide" role="alert" id="formWarning"></div>
+
+                    <div class="form-group col-md-3 col-xs-12 Title">
+                        <label for="Title">Ünvan <span class="text-danger">(*)</span>:</label>
+                        <input type="text" class="form-control formelement maxlength validate" data-errormsg="Kullanıcı ünvanını girmeniz gerekiyor." data-element="text" data-minlength="2" id="Title" maxlength="140" />
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12 Email">
+                        <label for="Email">Eposta <span class="text-danger">(*)</span>:</label>
+                        <input type="text" class="form-control formelement maxlength autocomplete validate" data-errormsg="Kullanıcı eposta adresini girmeniz gerekiyor." data-element="email" data-tablename="aspnetusers" data-title="true" data-columnname="Email" id="Email" maxlength="256" />
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12 FirstName">
+                        <label for="FirstName">Adı <span class="text-danger">(*)</span>:</label>
+                        <input type="text" class="form-control formelement maxlength validate" data-errormsg="Kullanıcı adını girmeniz gerekiyor." data-element="text" data-minlength="2" id="FirstName" maxlength="24" />
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12 LastName">
+                        <label for="LastName">Soyadı <span class="text-danger">(*)</span>:</label>
+                        <input type="text" class="form-control formelement maxlength validate" data-errormsg="Kullanıcı soyadını girmeniz gerekiyor." data-element="text" data-minlength="2" id="LastName" maxlength="24" />
+                    </div>
+
+                    <div class="form-group col-xs-12 m-t-md">
+                        <button type="button" class="btn btn-success insert">
+                            <span class="btn-label">
+                                <i class="fa fa-floppy-o"></i>
+                            </span>
+                            Ekle
+                        </button>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

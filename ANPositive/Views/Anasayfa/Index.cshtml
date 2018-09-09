@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_tr.cshtml";
+}
+
+@section metas{
+    <meta name="title" content="Anasayfa - A-Team Ship Repair Technical Services" />
+    <meta name="description" content="A-Team Ship Repair Technical Services" />
+    <meta name="keywords" content="ateam, gemicilik, kumanya, bakım, onarım, tamir" />
+}
+
+@section styles{
+    <link href="~/Content/Site/Home/Home.min.css" rel="stylesheet" />
+}
+
+<div class="slider-area slider-text-white">
+    <div class="slider-active dot-style">
+        @{
+            for (int i = 1; i < 4; i++)
+            {
+                <div class="single-slider slider-height d-flex align-items-center" data-background="/images/Site/Slider/@(i.ToString()).jpg"></div>
+            }
+        }
+    </div>
+</div>
+
+<div class="services-area pt-120 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-title text-center mb-50">
+                    <h2>Hizmetlerimiz</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-ship fa-4x"></i>
+                    <h2>Gövde & Güverte Onarımı</h2>
+                    <p>Genç, dinamik ve uzman kadromuz ile gemi gövde ve güverte onarımı hizmeti veriyoruz.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-bolt fa-4x"></i>
+                    <h2>Elektrik & Elektronik Tamiri</h2>
+                    <p>Son teknoloji ekipmanlarımızla elektrik ve elektronik sorunları hızlıca çözüyoruz.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-cogs fa-4x"></i>
+                    <h2>Motor Bakımı & Onarımı</h2>
+                    <p>Profesyonel ekibimizle ana makine ve yardımcı makinelerin bakım ve onarımı yapıyoruz.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-fire-extinguisher fa-4x"></i>
+                    <h2>Güvenlik Ekipmanları</h2>
+                    <p>Vermiş olduğumuz güvenlik ekipmanları birçok class kuruluşu tarafından onaylıdır.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-drafting-compass fa-4x"></i>
+                    <h2>Teknik Ürünler</h2>
+                    <p>Kaliteli, güvenilir ve en uygun fiyata siz degerli müşterilerimize hizmet vermekteyiz.</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="service-wrapper text-center mb-30">
+                    <i class="fas fa-wrench fa-4x"></i>
+                    <h2>Atölye & Yenileme</h2>
+                    <p>Çelik, donatım ve boya departmanlarını içinde bulunduran büyük bir yapı konumundayız.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-area pt-50 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-9 col-md-8">
+                <div class="cta-text">
+                    <h2>Gemi bakım, onarım ve tamiri için bizimle iletişime geçin!</h2>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-3 col-md-4">
+                <div class="cta-button text-md-right">
+                    <a class="btn-contact" href="@Url.Action("Index", "Iletisim")">
+                        İletişim Bilgilerimiz
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

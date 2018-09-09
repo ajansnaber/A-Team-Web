@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Eposta Doğrulaması";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="passwordBox animated fadeInDown">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox-content">
+                <h2 class="font-bold">@ViewBag.Title.</h2>
+                <p>
+                    Eposta adresinizi doğruladığınız için teşekkür ederiz. Giriş yapmak için @Html.ActionLink("burayı", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) tıklayabilirsiniz.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

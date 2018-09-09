@@ -1,0 +1,77 @@
+[
+  {
+    "outputFileName": "Scripts/Admin/Shared/Master.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Shared/Master.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/User/List.min.js",
+    "inputFiles": [
+      "Scripts/Admin/User/List.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/User/Insert.min.js",
+    "inputFiles": [
+      "Scripts/Admin/User/Insert.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/User/Edit.min.js",
+    "inputFiles": [
+      "Scripts/Admin/User/Edit.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Content/List.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Content/List.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Content/Insert.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Content/Insert.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Content/Edit.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Content/Edit.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Gallery/List.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Gallery/List.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Gallery/Insert.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Gallery/Insert.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Admin/Gallery/Edit.min.js",
+    "inputFiles": [
+      "Scripts/Admin/Gallery/Edit.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Site/ANPositiveCore.css",
+    "inputFiles": [
+      "Content/Site/Core/Default.min.css",
+      "Content/Site/Core/Core.min.css",
+      "Content/Site/Core/Footer.min.css",
+      "Content/Site/Core/Responsive.min.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Site/Contact/Contact.min.js",
+    "inputFiles": [
+      "Scripts/Site/Contact/Contact.js"
+    ]
+  }
+]

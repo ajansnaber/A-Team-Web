@@ -1,0 +1,138 @@
+﻿@{
+    string uploadFolder = "galleries";
+}
+
+@section Styles{
+    @Styles.Render("~/plugins/select2Styles")
+    @Styles.Render("~/plugins/fancyboxStyles")
+    @Styles.Render("~/plugins/toastrStyles")
+    @Styles.Render("~/plugins/Multiple-jQuery-File-UploadStyle")
+
+    <link href="~/Content/Admin/Gallery/Insert.min.css" rel="stylesheet" />
+}
+
+@section scripts{
+    @Scripts.Render("~/plugins/BootstrapMaxlength")
+    @Scripts.Render("~/plugins/toastr")
+    @Scripts.Render("~/plugins/devBridgeAutoComplete")
+    @Scripts.Render("~/plugins/moment")
+    @Scripts.Render("~/plugins/fancybox")
+    @Scripts.Render("~/plugins/select2")
+    @Scripts.Render("~/plugins/Multiple-jQuery-File-Upload")
+    @Scripts.Render("~/plugins/ANPositive")
+
+    <script src="~/Scripts/Admin/Gallery/Insert.min.js"></script>
+    <script type="text/javascript">
+        var redirectUrl = "@Url.Action("list")",
+            ajaxUrl = "@Url.Action("create")",
+            uploadParameters = {
+                uploadFolder : "@uploadFolder",
+                uploadTitle : "@ViewBag.Title",
+                singleFile : false,
+                imageMaxWidth : 800,
+                imageMaxHeight : 600,
+                imageCrop : true
+            };
+    </script>
+}
+
+@Html.Partial("~/Areas/Admin/Views/Shared/_BreadCrumb.cshtml", "Galeri Listesine Geri Dön")
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewBag.Title</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" id="form">
+                    <div class="sk-spinner sk-spinner-double-bounce">
+                        <div class="sk-double-bounce1"></div>
+                        <div class="sk-double-bounce2"></div>
+                    </div>
+
+                    <div class="alert alert-warning hide" role="alert" id="formWarning"></div>
+
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#content">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i> İçerik
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#upload">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Görseller
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#seo">
+                                    <i class="fa fa-google" aria-hidden="true"></i> SEO
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="content" class="tab-pane active">
+                                <div class="panel-body">
+                                    <div class="form-group col-md-3 col-xs-12 language">
+                                        <label for="language">Dil:</label>
+                                        <select class="form-control formelement" id="language">
+                                            <option value="1">Türkçe</option>
+                                            <option value="0">İngilizce</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-9 col-xs-12 title">
+                                        <label for="title">Başlık <span class="text-danger">(*)</span>:</label>
+                                        <input type="text" class="form-control formelement maxlength autocomplete validate" data-errormsg="Galeri başlığını girmeniz gerekiyor." data-minlength="2" data-element="text" data-tablename="galleries" data-title="true" data-columnname="title" id="title" maxlength="140" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="upload" class="tab-pane">
+                                <div class="panel-body">
+                                    @Html.Partial("~/Areas/Admin/Views/Shared/_MultiFileUpload.cshtml", uploadFolder)
+                                </div>
+                            </div>
+
+                            <div id="seo" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="form-group col-md-12 col-xs-12 metaTitle">
+                                        <label for="metaTitle">Meta Başlığı:</label>
+                                        <input type="text" class="form-control formelement maxlength" id="metaTitle" maxlength="65" />
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12 metaDescription">
+                                        <label for="metaDescription">Meta Tanımı:</label>
+                                        <textarea class="form-control formelement maxlength" id="metaDescription" maxlength="320" rows="5"></textarea>
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12 metaTags">
+                                        <label for="metaTags">Anahtar Kelimeler:</label>
+                                        <select class="form-control formelement select2-multiple" data-element="tags" data-placeholder="Anahtar kelimeler" id="metaTags" multiple="multiple" style="width:100%;"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12 m-t-md">
+                        <button type="button" class="btn btn-success insert">
+                            <span class="btn-label">
+                                <i class="fa fa-floppy-o"></i>
+                            </span>
+                            Ekle
+                        </button>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@using System.Configuration;
+
+<input type="hidden" id="primaryKey" />
+<input type="hidden" id="iladi" />
+
+<div class="footer">
+    <div class="pull-right">
+        <strong>Version</strong> @ConfigurationManager.AppSettings["applicationVersion"]
+    </div>
+    <div>
+        <strong>Copyright</strong> &copy; 2009-@DateTime.Now.Year.ToString() <a href="https://ajansnaber.com" target="_blank">AN+ Creative Solutions</a>. Tüm Hakları Saklıdır.
+    </div>
+</div>
+
+<script type="text/javascript">
+    var appName = "@ConfigurationManager.AppSettings["applicationName"]";
+</script>

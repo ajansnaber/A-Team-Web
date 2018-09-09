@@ -1,0 +1,47 @@
+﻿$color_1: #fff;
+$color_2: #ccc;
+$color_3: #646464;
+$color_4: #414149;
+$border_color_1: currentcolor currentcolor #cccccf;
+
+.wrapper-box {
+    .container-fluid.bc {
+        padding: 1vw;
+        background: rgba(26,26,26,.35);
+        border-radius: 4px;
+    }
+}
+
+.page-title {
+    h1 {
+        color: $color_1;
+        font-size: 62px;
+        font-weight: 700;
+        text-shadow: rgba(0,0,0,.6) 0 4px 8px;
+    }
+}
+
+.breadcrumb-item {
+    > a {
+        color: $color_1;
+        font-size: 17px;
+    }
+
+    & + .breadcrumb-item {
+        &::before {
+            color: $color_1;
+            content: "-";
+        }
+    }
+}
+
+.breadcrumb {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item.active {
+    color: $color_2;
+}

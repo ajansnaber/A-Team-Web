@@ -1,0 +1,72 @@
+﻿@using ANPositive.Models
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+
+@{
+    ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+}
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element text-center">
+                    <span>
+                        <img src="~/images/Admin/avatar.png" class="img-circle" alt="@user.firstName @user.lastName" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">@user.firstName @user.lastName</strong>
+                            </span> <span class="text-muted text-xs block">@user.title <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "m-t" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    }
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="@Url.Action("Index", "Manage")">Profil</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Çıkış</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    AN+
+                </div>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Content")">
+                <a href="@Url.Action("Index", "Content")">
+                    <i class="fa fa-file-text-o"></i>
+                    <span class="nav-label">İçerik Yönetimi</span>
+                </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Gallery")">
+                <a href="@Url.Action("Index", "Gallery")">
+                    <i class="fa fa-picture-o"></i>
+                    <span class="nav-label">Galeri Yönetimi</span>
+                </a>
+            </li>
+            
+            @{
+                if (User.IsInRole(RoleNames.roleAdministrator))
+                {
+                    <li class="@Html.IsSelected(controller: "User")">
+                        <a href="@Url.Action("Index", "User")">
+                            <i class="fa fa-users"></i>
+                            <span class="nav-label">Kullanıcılar</span>
+                        </a>
+                    </li>
+                }
+            }
+
+            <li>
+                <a href="@Url.Action(((Route)Url.RouteCollection["Default"]).Defaults["action"].ToString(), ((Route)Url.RouteCollection["Default"]).Defaults["controller"].ToString(), new { area = "" }, null)" target="_blank">
+                    <i class="fa fa-globe"></i>
+                    <span class="nav-label">Siteye Git</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,33 @@
+﻿@using System.Configuration;
+
+@model string
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-6 col-xs-12">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Dashboard")">@ConfigurationManager.AppSettings["applicationName"]</a></li>
+            @{
+                if (ViewBag.TopMenu != null)
+                {
+            <li><a href="@Url.Action("Index", HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString())"> @ViewBag.TopMenu</a></li>
+                }
+            }
+            <li class="active"><strong>@ViewBag.Title</strong></li>
+        </ol>
+    </div>
+    <div class="col-sm-6 col-xs-12 text-right actionButtonArea @(Model == string.Empty ? "hide": null)">
+        <a href="@Url.Action(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString().ToLower() == "list" ? "Insert" : "List", HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString())" class="btn btn-success">
+            @{ 
+                if (HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString().ToLower() == "list")
+                {
+                    <i class="fa fa-plus-square"></i>
+                }else
+                {
+                    <i class="fa fa-chevron-left"></i>
+                }
+            }
+            &nbsp;&nbsp;@Model
+        </a>
+    </div>
+</div>

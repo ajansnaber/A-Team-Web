@@ -1,0 +1,43 @@
+﻿@using ANPositive.Models
+@{
+    Content content = Model;
+    Layout = "~/Views/Shared/_Layout_tr.cshtml";
+}
+
+@section metas{
+    <meta name="title" content="@content.metaTitle" />
+    <meta name="description" content="@content.metaDescription" />
+    <meta name="keywords" content="@content.metaTags" />
+}
+
+@section styles{
+    <link href="~/Content/Site/Content/Content.min.css" rel="stylesheet" />
+}
+
+<div class="page-title-area pt-210 pb-210" data-background="/uploads/contents/@content.image">
+    <div class="container-fluid bc">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-title text-center">
+                    <h1>@content.title</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item">
+                                @Html.ActionLink("Anasayfa", "Index", "Home")
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page"> @content.title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-50 pb-50">
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            @Html.Raw(content.body)
+        </div>
+    </div>
+</div>

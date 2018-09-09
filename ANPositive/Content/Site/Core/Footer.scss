@@ -1,0 +1,87 @@
+﻿$gray: #f7f7fd;
+$white: #fff;
+$black: #000;
+$black-bg: #222;
+$sari: #fff100;
+$mavi: 007bff;
+$font-color: #333;
+$light-font-color: #777;
+
+footer {
+    &.black-bg {
+        .widget-area {
+            .footer-widget {
+                img {
+                }
+
+                & > h3 {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 25px;
+                    color: $white;
+                }
+            }
+
+            .footer-info {
+                li {
+                    font-size: 16px;
+                    font-weight: normal;
+                    line-height: 27px;
+                    color: $light-font-color;
+
+                    a {
+                        color: #777;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 36px;
+                        padding-left: 20px;
+                        position: relative;
+
+                        &:hover {
+                            color: #fff100;
+                        }
+                    }
+                }
+            }
+
+            .footer-link {
+                li {
+                    float: left;
+                    width: 50%;
+
+                    a {
+                        color: #777;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 36px;
+                        padding-left: 20px;
+                        position: relative;
+
+                        &:hover {
+                            color: #fff100;
+                        }
+
+                        &::before {
+                            content: "\f0da";
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+        }
+
+        .copyright-area {
+            border-top: 1px solid #444;
+
+            & .copyright-text {
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

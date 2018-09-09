@@ -1,0 +1,40 @@
+﻿@model ANPositive.Models.SendCodeViewModel
+@{
+    ViewBag.Title = "Kod Gönder";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="passwordBox animated fadeInDown">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox-content">
+                <h2 class="font-bold">@ViewBag.Title</h2>
+                <p>
+                    Doğrulama kodunu göndermek istediğiniz yöntemi seçin ve gönderin.
+                </p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        @using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "m-t", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("rememberMe", @Model.RememberMe)
+
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.SelectedProvider, Model.Providers, new { @class = "form-control" })
+                            </div>
+
+                            <button type="submit" class="btn btn-primary block full-width m-b">Gönder</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="m-t text-center">
+        <small>AN+ Creative Solutions &copy; 2009 - @DateTime.Now.Year.ToString()</small>
+    </p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

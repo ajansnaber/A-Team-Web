@@ -1,0 +1,199 @@
+﻿@using ANPositive.Models
+
+@{
+    Gallery gallery = Model;
+    string uploadFolder = "galleries";
+}
+
+@section Styles{
+    @Styles.Render("~/plugins/select2Styles")
+    @Styles.Render("~/plugins/fancyboxStyles")
+    @Styles.Render("~/plugins/toastrStyles")
+    @Styles.Render("~/plugins/Multiple-jQuery-File-UploadStyle")
+    @Styles.Render("~/plugins/jQueryConfirmStyles")
+
+    <link href="~/Content/Admin/Gallery/Edit.min.css" rel="stylesheet" />
+}
+
+@section scripts{
+    @Scripts.Render("~/plugins/BootstrapMaxlength")
+    @Scripts.Render("~/plugins/toastr")
+    @Scripts.Render("~/plugins/devBridgeAutoComplete")
+    @Scripts.Render("~/plugins/moment")
+    @Scripts.Render("~/plugins/fancybox")
+    @Scripts.Render("~/plugins/select2")
+    @Scripts.Render("~/plugins/Multiple-jQuery-File-Upload")
+    @Scripts.Render("~/plugins/jQueryConfirm")
+    @Scripts.Render("~/plugins/ANPositive")
+
+    <script src="~/Scripts/Admin/Gallery/Edit.min.js"></script>
+    <script type="text/javascript">
+    var $id = @gallery.id,
+        $title = "<strong>@gallery.title</strong> başlıklı galeriyi {action} istediğinizden emin misiniz?",
+        $published = @((!gallery.published).ToString().ToLower()),
+        $isDeleted = @((!gallery.isDeleted).ToString().ToLower()),
+        redirectUrl = "@Url.Action("list")",
+        updateUrl = "@Url.Action("update")",
+        deleteUrl = "@Url.Action("delete")",
+        publishUrl = "@Url.Action("publish")",
+        uploadParameters = {
+            uploadFolder: "@uploadFolder",
+            uploadTitle: "@ViewBag.Title",
+            singleFile: false,
+            imageMaxWidth: 800,
+            imageMaxHeight: 600,
+            imageCrop: true
+        };
+
+    images = @(Html.Raw(Json.Encode(gallery.images)));
+
+    $(function () {
+        $("#fileupload")
+            .fileupload(
+                "option",
+                "redirect",
+                window.location.href.replace(
+                    /\/[^\/]*$/,
+                    "/cors/result.html?%s"
+                )
+            )
+            .addClass("fileupload-processing");
+
+        $.ajax({
+            url: "@Url.Action("getUploadedFile", "Api")",
+            data: { id: @gallery.id, tableName: "galleries", columnName: "images", subFolder : "@uploadFolder" },
+            dataType: "json",
+            context: $("#fileupload")[0]
+        }).always(function () {
+            $(this).removeClass("fileupload-processing");
+            }).done(function (result) {
+
+            $(this).fileupload("option", "done")
+                .call(this, $.Event("done"), { result: result });
+        });
+    });
+    </script>
+}
+
+@Html.Partial("~/Areas/Admin/Views/Shared/_BreadCrumb.cshtml", "Galeri Listesine Geri Dön")
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewBag.Title</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" id="form">
+                    <div class="sk-spinner sk-spinner-double-bounce">
+                        <div class="sk-double-bounce1"></div>
+                        <div class="sk-double-bounce2"></div>
+                    </div>
+
+                    <div class="alert alert-warning hide" role="alert" id="formWarning"></div>
+
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#content">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i> İçerik
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#upload">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Görseller
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#seo">
+                                    <i class="fa fa-google" aria-hidden="true"></i> SEO
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="content" class="tab-pane active">
+                                <div class="panel-body">
+                                    <div class="form-group col-md-3 col-xs-12 language">
+                                        <label for="language">Dil:</label>
+                                        <select class="form-control formelement" id="language">
+                                            <option value="1" @(gallery.language == 1 ? "selected" : null)>Türkçe</option>
+                                            <option value="0" @(gallery.language == 0 ? "selected" : null)>İngilizce</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-9 col-xs-12 title">
+                                        <label for="title">Başlık <span class="text-danger">(*)</span>:</label>
+                                        <input type="text" class="form-control formelement maxlength autocomplete validate" data-errormsg="Galeri başlığını girmeniz gerekiyor." data-minlength="2" data-element="text" data-tablename="galleries" data-title="true" data-columnname="title" id="title" maxlength="140" value="@gallery.title" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="upload" class="tab-pane">
+                                <div class="panel-body">
+                                    @Html.Partial("~/Areas/Admin/Views/Shared/_MultiFileUpload.cshtml", uploadFolder)
+                                </div>
+                            </div>
+
+                            <div id="seo" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="form-group col-md-12 col-xs-12 metaTitle">
+                                        <label for="metaTitle">Meta Başlığı:</label>
+                                        <input type="text" class="form-control formelement maxlength" id="metaTitle" maxlength="65" value="@gallery.metaTitle" />
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12 metaDescription">
+                                        <label for="metaDescription">Meta Tanımı:</label>
+                                        <textarea class="form-control formelement maxlength" id="metaDescription" maxlength="320" rows="5">@gallery.metaDescription</textarea>
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12 metaTags">
+                                        <label for="metaTags">Anahtar Kelimeler:</label>
+                                        <select class="form-control formelement select2-multiple" data-element="tags" data-placeholder="Anahtar kelimeler" id="metaTags" multiple="multiple" style="width: 100%;">
+                                            @{
+                                                if (gallery.metaTags != null)
+                                                {
+                                                    foreach (string tag in gallery.metaTags)
+                                                    {
+                                                        <option value="@tag" selected>@tag</option>
+                                                    }
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12 m-t-md">
+                        <button type="button" class="btn btn-success edit">
+                            <span class="btn-label">
+                                <i class="fa fa-floppy-o"></i>
+                            </span>
+                            Kaydet
+                        </button>
+                        <button type="button" class="btn btn-warning publish">
+                            <span class="btn-label">
+                                <i class="fa fa fa-recycle"></i>
+                            </span>
+                            @(gallery.published ? "Yayından Kaldır" : "Yayınla")
+                        </button>
+                        <button type="button" class="btn btn-danger del">
+                            <span class="btn-label">
+                                <i class="fa fa fa-trash-o"></i>
+                            </span>
+                            @(!gallery.isDeleted ? "Sil" : "Geri Yükle")
+                        </button>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

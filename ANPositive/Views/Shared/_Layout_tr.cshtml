@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="tr">
+<head>
+    <title>@ViewBag.Title | A-Team Ship Repair Technical Services</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="author" content="Evren Yeniev | ANPositive Creative Solutions- info@ajansnaber.com - www.ajansnaber.com" />
+    <meta name="owner" content="A-Team Ship Repair Technical Services" />
+    <meta name="copyright" content="(c) @DateTime.Now.Year.ToString()" />
+
+    @if (IsSectionDefined("metas"))
+    {@RenderSection("metas", required: false)}
+
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Work+Sans:300,400,500,600,700,800;subset=latin-ext" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/css/nice-select.min.css" />
+    <link rel="stylesheet" href="~/Content/Site/ANPositiveCore.min.css" />
+
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+</head>
+<body>
+
+    <header>
+        <div class="header-top-area theme-bg top-space">
+            <div class="container ">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                        <div class="header-call text-center text-md-left">
+                            <i class="fas fa-phone-volume"></i>
+                            <a href="tel:+90-232-4645542">
+                                <span>+90 232 464 55 42</span>
+                            </a>
+                            <i class="far fa-envelope"></i>
+                            <a href="mailto:info@a-team.com.tr">
+                                <span>info@a-team.com.tr</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-3 d-flex align-items-center justify-content-end">
+                        <div class="language f-left d-none d-md-block">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Türkçe
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Home")">
+                                                English
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Türkçe</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="social-icon f-left d-none d-md-block">
+                            <a href="https://www.linkedin.com/in/a-team-ship-repair-and-ship-supply-692762150/" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="logo">
+                            <a href="@Url.Action("Index", "Anasayfa")">
+                                <img src="/images/Site/logo.png" alt="A-Team Ship Repair Technical Services">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9">
+                        <div class="main-menu f-right">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li>
+                                        @Html.ActionLink("Anasayfa", "Index", "Anasayfa")
+                                    </li>
+
+                                    @{
+                                        Html.RenderAction("NavigationMenu", "Partial", new { menuPosition = 0, lang = 1});
+                                    }
+
+                                    <li>
+                                        @Html.ActionLink("Galeri", "Index", "Galeri")
+                                    </li>
+
+                                    <li>
+                                        @Html.ActionLink("İletişim", "Index", "Iletisim")
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper-box p-0">
+        @RenderSection("breadcrumbs", required: false)
+
+        @RenderBody()
+
+        <footer class="black-bg">
+            <div class="widget-area pt-70 pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-3 col-md-4 mb-30">
+                            <div class="footer-widget">
+                                <img class="mb-30" src="/images/Site/logo-white.png" alt="" />
+                                <p>
+                                    2003 yılından beri Kaliteli, güvenilir hizmet anlayışı ile denizcilik sektöründe faaliyet göstermektedir. Firmamız tamir & bakım onarım, teknik malzeme, güvenlik ekipmanları konusunda iddialı stok ve alt yapıya sahiptir.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-3 mb-30">
+                            <div class="footer-widget">
+                                <h3>Faydalı Bilgiler</h3>
+                                <ul class="footer-link">
+                                    @{
+                                        Html.RenderAction("NavigationMenu", "Partial", new { menuPosition = 1, lang = 1 });
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-5 mb-30">
+                            <div class="footer-widget pl-50">
+                                <h3>İletişim</h3>
+                                <ul class="footer-info">
+                                    <li>
+                                        <i class="fas fa-map-pin"></i>
+                                        <span>Atatürk Cad. No: 380 Daire: 207 Konak, İzmir</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-phone-volume"></i>
+
+                                        <a href="tel:+90-232-4645542">
+                                            +90 232 464 55 42
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-fax"></i>
+                                        <a href="tel:+90-232-4645543">
+                                            +90 232 464 87 63
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-envelope"></i>
+                                        <a href="mailto:info@a-team.com.tr">
+                                            info@a-team.com.tr
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area pt-25 pb-25">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="copyright-text text-center text-lg-left">
+                                <p>
+                                    A-Team Ship Repair Technical Services ©2003 - @DateTime.Now.Year.ToString()
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/js/jquery.nice-select.min.js"></script>
+    <script src="~/Scripts/Site/jquery.meanmenu.min.js"></script>
+    <script src="~/Scripts/Site/plugins.js"></script>
+    <script src="~/Scripts/Site/main.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

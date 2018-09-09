@@ -1,0 +1,123 @@
+﻿$color_1: #fff;
+$color_2: #ccc;
+$color_3: #646464;
+$color_4: #414149;
+$border_color_1: currentcolor currentcolor #cccccf;
+
+.wrapper-box {
+    .container-fluid.bc {
+        padding: 1vw;
+        background: rgba(26,26,26,.35);
+        border-radius: 4px;
+    }
+}
+
+.page-title {
+    h1 {
+        color: $color_1;
+        font-size: 62px;
+        font-weight: 700;
+        text-shadow: rgba(0,0,0,.6) 0 4px 8px;
+    }
+}
+
+.breadcrumb-item {
+    > a {
+        color: $color_1;
+        font-size: 17px;
+    }
+
+    & + .breadcrumb-item {
+        &::before {
+            color: $color_1;
+            content: "-";
+        }
+    }
+}
+
+.breadcrumb {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item.active {
+    color: $color_2;
+}
+
+.contact-form {
+    > h3 {
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+
+    input {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-color: $border_color_1;
+        border-image: none;
+        border-style: none none solid;
+        border-width: 0 0 1px;
+        font-size: 13px;
+        height: 50px;
+        margin-bottom: 30px;
+        width: 100%;
+        border: 0;
+        border: 1px solid #ddd;
+        padding: 0 15px;
+    }
+
+    textarea {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-color: $border_color_1;
+        border-image: none;
+        border-style: none none solid;
+        border-width: 0 0 1px;
+        height: 150px;
+        margin-bottom: 30px;
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 15px;
+    }
+}
+
+.contact-info {
+    > span {
+        color: $color_3;
+        display: block;
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        color: $color_4;
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+}
+
+.contact-meta-info {
+    h4 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    > p {
+        margin-bottom: 0;
+    }
+}
+
+#contact-map {
+    height: 500px;
+}

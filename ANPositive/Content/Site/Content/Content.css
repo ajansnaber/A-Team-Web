@@ -1,0 +1,28 @@
+﻿.wrapper-box .container-fluid.bc {
+  padding: 1vw;
+  background: rgba(26, 26, 26, 0.35);
+  border-radius: 4px; }
+
+.page-title h1 {
+  color: #fff;
+  font-size: 62px;
+  font-weight: 700;
+  text-shadow: rgba(0, 0, 0, 0.6) 0 4px 8px; }
+
+.breadcrumb-item > a {
+  color: #fff;
+  font-size: 17px; }
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #fff;
+  content: "-"; }
+
+.breadcrumb {
+  background: transparent none repeat scroll 0 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0; }
+
+.breadcrumb-item.active {
+  color: #ccc; }
+
