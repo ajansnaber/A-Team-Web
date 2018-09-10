@@ -67,7 +67,7 @@ namespace ANPositive.Controllers
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, "M@ster.01")
+                    Credentials = new NetworkCredential(fromAddress.Address, "Password")
                 };
 
                 using (var message = new MailMessage(fromAddress, toAddress)
