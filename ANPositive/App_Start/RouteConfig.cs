@@ -19,7 +19,7 @@ namespace ANPositive
 
             routes.MapRoute(
                 name: "Contact",
-                url: "Contact",
+                url: "Contact/{action}",
                 defaults: new { controller = "Contact", action = "Index" }
             );
 

@@ -73,5 +73,11 @@
     "inputFiles": [
       "Scripts/Site/Contact/Contact.js"
     ]
+  },
+  {
+    "outputFileName": "Content/Mailing.min.css",
+    "inputFiles": [
+      "Content/Mailing.css"
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 ﻿namespace ANPositive.Models
 {
-    public class Email
+    public class ContactMessageEmail
     {
         public string firstNameLastName { get; set; }
         public string emailAddress { get; set; }

@@ -247,6 +247,7 @@
             }
         },
         submitHandler: function (form) {
+            $(".loadingContainer").toggleClass("d-none");
             var data = {
                 firstNameLastName: $("#firstNameLastName").val(),
                 emailAddress: $("#emailAddress").val(),
@@ -256,7 +257,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/Contact/Send",
+                url: ajaxUrl,
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -267,18 +268,21 @@
                     } else {
                         toastr.error(result.message);
                     }
-
-                    return false;
+                    $(".loadingContainer").toggleClass("d-none");
                 },
                 error: function () {
                     console.log("Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
-                    return false;
+                    $(".loadingContainer").toggleClass("d-none");
                 }
             });
+            return false;
         },
         errorPlacement: function(error, element) {
             console.log(element);
             return false;
+        },
+        success: function() {
+            console.log("Success");
         }
     });
 });

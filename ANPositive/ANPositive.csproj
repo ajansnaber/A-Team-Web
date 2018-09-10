@@ -252,7 +252,7 @@
     <Compile Include="Models\Account\IdentityModels.cs" />
     <Compile Include="Models\Account\ManageViewModels.cs" />
     <Compile Include="Models\Account\RoleNames.cs" />
-    <Compile Include="Models\Email\Email.cs" />
+    <Compile Include="Models\Email\ContactMessageEmail.cs" />
     <Compile Include="Models\Gallery\Gallery.cs" />
     <Compile Include="Models\Page\Page.cs" />
     <Compile Include="Models\Seo\SeoFriendlyRoute.cs" />
@@ -261,10 +261,15 @@
     <Compile Include="Models\Shared\filesViewModel.cs" />
     <Compile Include="Models\Shared\result.cs" />
     <Compile Include="Models\Shared\uploadedFile.cs" />
+    <Compile Include="Models\SiteDefault\SiteDefault.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Mailing.css" />
+    <Content Include="Content\Mailing.min.css">
+      <DependentUpon>Mailing.css</DependentUpon>
+    </Content>
     <Content Include="Mailing\Mailing.html" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contents\Index.cshtml" />
